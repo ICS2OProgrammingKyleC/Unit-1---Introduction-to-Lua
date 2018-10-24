@@ -6,6 +6,11 @@
 -- hide the status bar
 display.setStatusBar(display.HiddenStatusBar)
 
+local litSong = audio.loadSound("sound/litSong.mp3")
+local litSongChannel
+
+litSongChannel = audio.play(litSong)
+
 -- global variables 
 scrollSpeed = 3
 local scrollSpeed2 = 2

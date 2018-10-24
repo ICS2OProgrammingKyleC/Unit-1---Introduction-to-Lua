@@ -27,3 +27,7 @@ textObject:setTextColor(12/255, 214/255, 116/255)
 --a deafult font style and font size of 50
 testObject = display.newText( "By The amazing: Kyle", 500, 600, nil, 50 )
 
+local Dubstep = audio.loadSound("Sounds/Dubstep.mp3")
+local DubstepChannel
+
+DubstepChannel = audio.play(Dubstep)

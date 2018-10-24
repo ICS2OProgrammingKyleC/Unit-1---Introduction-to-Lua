@@ -10,7 +10,8 @@ display.setStatusBar(display.HiddenStatusBar)
 --sets the background colour 
 display.setDefault("background", 44/255, 202/255, 214/255)
 
---Local variables
+--Local variables for timer
+
 
 --create local variables 
 local questionObject

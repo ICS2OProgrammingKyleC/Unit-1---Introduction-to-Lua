@@ -9,6 +9,11 @@ display.setDefault ("background", 0/255, 0/255, 0/255)
 --hide status bar 
 display.setStatusBar(display.HiddenStatusBar)
 
+-- pop sound
+local popSound = audio.loadSound("Sound/popSound.wav")
+local popSoundChannel
+
+
 -- create blue button, set its position and make it visible
 local blueButton = display.newImageRect("Images/blueButton.png", 198, 96)
 blueButton.x = display.contentWidth/2
@@ -44,7 +49,6 @@ local function BlueButtonListenser(touch)
 		redButton.isVisible = true
 		textObject.isVisible = true
 		checkmark.isVisible = true
-
 	end
 	
 	if (touch.phase == "ended")	then 
@@ -63,20 +67,15 @@ blueButton:addEventListener("touch", BlueButtonListenser)
 -- Description: when red button is clicked, it will make the text appear with the red button
 local function RedButtonListenser(touch)
 
-	if (touch.phase == "ended")	then 
+	if (touch.phase == "ended")	then
+		popSoundChannel = audio.play(popSound)
 	    redButton.isVisible = false 
 	    blueButton.isVisible = true
 	    textObject.isVisible = false
 	    checkmark.isVisible = false 
-
+	  
 	end
 end
 
 -- add the respective listeners to each object
 redButton:addEventListener("touch", RedButtonListenser)
-
--- function: checkmarkListener
--- Input: touch listener
--- Output: none 
--- Description: when red button is clicked, it will make the text appear with the red button
-

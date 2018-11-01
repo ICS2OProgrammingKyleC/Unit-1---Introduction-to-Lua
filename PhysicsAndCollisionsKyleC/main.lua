@@ -23,6 +23,16 @@ ground.x = display.contentWidth/2
 
 --add to physics
 physics.addBody(ground, "static", {friction=0.5, bounce=0.3})
+
+--Ground
+local ground2 = display.newImage("Images/ground.png", 0, 1)
+
+--change the width to be the same as the screen
+ground2.width = display.contentWidth
+ground2.x = display.contentWidth/1.8
+
+--add to physics
+physics.addBody(ground2, "static", {friction=0.5, bounce=0.3})
 ---------------------------------------------------------------------
 local beam = display.newImage("Images/beam.png", 0, 0)
 beam.width = display.contentWidth/2
@@ -41,15 +51,25 @@ beam:toBack()
 physics.addBody(beam, "static", {friction=0.5, bounce=0.3})
 ----------------------------------------------------------
 --create second beam
-local beam2 = display.newImage("Images/beam.png", 700, 800)
-beam2.width = display.contentWidth/5
+local beam2 = display.newImage("Images/beam.png", 1000, 350)
+beam2.width = display.contentWidth/10
 beam2.height = display.contentHeight
+
+local beam3 = display.newImage("Images/beam.png", 0, 350)
+beam3.width = display.contentWidth/1000
+beam3.height = display.contentHeight
 
 --send it to back
 beam2:toBack()
 
 --add to physics
 physics.addBody(beam2, "static", {friction=0.5, bounce})
+
+--send it to back
+beam3:toBack()
+
+--add to physics
+physics.addBody(beam3, "static", {friction=0.5, bounce})
 ----------------------------------------------------------
 --create bkg
 local bkg = display.newImage("Images/bkg.png", 0, 0)
@@ -72,7 +92,7 @@ local function firstBall()
 		-- creating first ball
 		local ball1 = display.newImage("Images/super_ball.png", 0, 0)
 		--add to physics
-	 	physics.addBody(ball1, {density= 2.0, friction=1.5, bounce=0.3, radius= 25})
+	 	physics.addBody(ball1, {density= 2.0, friction=1.5, bounce=0.8, radius= 25})
 	end
 	------------------------------------------------------------------------------------------------------------
 
@@ -81,7 +101,7 @@ local function firstBall()
 		-- creating second ball
 		local ball2 = display.newImage("Images/super_ball.png", 0, 0)
 		--add to physics
-		physics.addBody(ball2, {density=1,0, friction=0.5, bounce=0.3, radius=12.5})
+		physics.addBody(ball2, {density=8,0, friction=0.5, bounce= 1, radius=12.5})
 		ball2:scale(0.5, 0.5)
 	end
 	-------------------------------------------------------------------------------------------------------------
@@ -92,17 +112,17 @@ local function firstBall()
 		ball3:scale(2, 2)
 	
 		--add to physics
-		physics.addBody(ball3, {density=1,7, friction=5.5, bounce=0.7, radius=50})
+		physics.addBody(ball3, {density=1,7, friction=5.5, bounce= 4, radius=50})
 	end
 	--------------------------------------------------------------------------------------------------------------
 	--create the fourth ball
 	local function fourthBall()
 		-- creating second ball
 		local ball4 = display.newImage("Images/super_ball.png", 0, 0)
-		ball4:scale(4, 4)
+		ball4:scale(8, 8)
 	
 		--add to physics
-		physics.addBody(ball4, {density=1,0, friction=0.8, bounce=0.7, radius=100})
+		physics.addBody(ball4, {density=10,0, friction=0.8, bounce= 2, radius=600})
 	end
 	--------------------------------------------------------------------------------------------------------------
 -----------------------------------

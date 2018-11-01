@@ -9,6 +9,10 @@ display.setStatusBar(display.HiddenStatusBar)
 -- display the back ground
 display.setDefault( "background", 255/255, 86/255,  117/255 )
 
+-- making whacked sound
+local whack = audio.loadSound("Sounds/whack.mp3")
+local whackChannel
+
 -- creating  Mole
 local Mole = display.newImage("Images/Mole.png", 0, 0)
 	
@@ -57,6 +61,7 @@ function Whacked( event )
 if (event.phase == "began") then
   scoreNumber = scoreNumber + 1
   scoreObject.isVisible = true
+  whackChannel = audio.play(whack)
   Hide()
   scoreObject.text = ( "Score = "..scoreNumber)
  end
